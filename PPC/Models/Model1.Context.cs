@@ -25,6 +25,7 @@ namespace PPC.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<Full_Contract> Full_Contract { get; set; }

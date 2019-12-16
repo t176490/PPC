@@ -22,7 +22,7 @@ namespace PPC.Models
     
         public int ID { get; set; }
         public int City_ID { get; set; }
-        public String District_Name { get; set; }
+        public string District_Name { get; set; }
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
