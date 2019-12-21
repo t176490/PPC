@@ -170,7 +170,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\FullContractController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstallmentContractController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,9 +186,11 @@
     <Compile Include="Models\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InstallmentContractPrintModel.cs" />
     <Compile Include="Models\District.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FullContractPrintModel.cs" />
     <Compile Include="Models\Full_Contract.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -228,12 +233,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\adminlte.min.css" />
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\ruang-admin.css" />
     <Content Include="Content\css\ruang-admin.min.css" />
+    <Content Include="Content\dataTables.bootstrap4.css" />
+    <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\font\glyphicons-halflings-regular.svg" />
     <Content Include="Content\font\OFL.txt" />
     <Content Include="Content\images\about.jpg" />
     <Content Include="Content\images\about_image.jpg" />
@@ -313,13 +323,41 @@
     <Content Include="Content\images\user2-160x160.jpg" />
     <Content Include="Content\index.html" />
     <Content Include="Content\js\about.js" />
+    <Content Include="Content\js\adminlte.min.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\contact.js" />
     <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\js\demo.js" />
     <Content Include="Content\js\elements.js" />
+    <Content Include="Content\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff2" />
+    <None Include="Content\js\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\js\jquery-1.10.2.js" />
+    <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\jquery.dataTables.js" />
+    <Content Include="Content\js\jquery.dataTables.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <None Include="Content\js\jquery.validate-vsdoc.js" />
+    <Content Include="Content\js\jquery.validate.js" />
+    <Content Include="Content\js\jquery.validate.min.js" />
+    <Content Include="Content\js\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\js\modernizr-2.6.2.js" />
     <Content Include="Content\js\news.js" />
     <Content Include="Content\js\properties.js" />
     <Content Include="Content\js\property.js" />
+    <Content Include="Content\js\respond.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\ruang-admin.js" />
+    <Content Include="Content\js\ruang-admin.min.js" />
+    <None Include="Content\js\_references.js" />
     <Content Include="Content\plugins\easing\easing.js" />
     <Content Include="Content\plugins\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -341,6 +379,9 @@
     <Content Include="Content\plugins\rangeslider.js-2.3.0\rangeslider.css" />
     <Content Include="Content\plugins\rangeslider.js-2.3.0\rangeslider.min.js" />
     <Content Include="Content\plugins\scrollmagic\ScrollMagic.min.js" />
+    <Content Include="Content\ruang-admin.css" />
+    <Content Include="Content\ruang-admin.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\styles\about.css" />
     <Content Include="Content\styles\about_responsive.css" />
     <Content Include="Content\styles\bootstrap4\bootstrap.min.css" />
@@ -2132,6 +2173,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\js\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2183,9 +2225,14 @@
     <Content Include="Views\Properties\Details.cshtml" />
     <Content Include="Views\Properties\Edit.cshtml" />
     <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\FullContract\Index.cshtml" />
+    <Content Include="Views\InstallmentContract\Index.cshtml" />
+    <Content Include="Views\InstallmentContract\Print.cshtml" />
+    <Content Include="Views\FullContract\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Auth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
